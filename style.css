@@ -1,0 +1,72 @@
+* {                                  /* * means "every element" */
+    box-sizing: border-box;            /* padding doesn't make boxes bigger than the width you set */
+    margin: 0;                         /* removes the browser's default spacing */
+  }
+  
+  html {
+    scroll-behavior: smooth;           /* nav links glide instead of jumping */
+  }
+  
+  body {
+    font-family: "Segoe UI", "Frutiger", "Trebuchet MS", sans-serif;
+                                       /* tries each font in order until one exists */
+    color: #0b3d5c;                    /* deep blue text, easier on the eyes than black */
+    min-height: 100vh;                 /* at least the full screen height */
+    background: linear-gradient(160deg, #7fd4ff 0%, #b8f0c8 60%, #e9fff3 100%);
+                                       /* diagonal gradient: sky blue to fresh green to near-white */
+    background-attachment: fixed;      /* background stays put while you scroll */
+    padding: 20px;                     /* breathing room around the edges */
+  }
+  
+  .glass {                             /* the dot means "any element with class glass" */
+    background: rgba(255, 255, 255, 0.45);   /* white at 45% opacity = see-through */
+    backdrop-filter: blur(12px);       /* blurs whatever is behind it, giving frosted glass */
+    border: 1px solid rgba(255, 255, 255, 0.8);  /* thin bright edge catches the "light" */
+    border-radius: 24px;               /* big rounded corners, very Y2K */
+    box-shadow: 0 8px 24px rgba(0, 120, 180, 0.25),   /* soft blue drop shadow */
+                inset 0 2px 0 rgba(255, 255, 255, 0.9); /* inner top highlight = glossy edge */
+    padding: 24px;                     /* space inside the box */
+    max-width: 800px;                  /* stops it getting too wide on big screens */
+    margin: 0 auto 24px;               /* centers it horizontally, 24px gap below */
+  }
+  
+  h1, h2 {                             /* applies to both headings */
+    text-shadow: 0 1px 0 #fff, 0 2px 6px rgba(0, 150, 220, 0.4);
+                                       /* white edge plus soft blue glow */
+    margin-bottom: 12px;
+  }
+  
+  nav a {
+    color: #0a74b8;                    /* link color */
+    text-decoration: none;             /* removes the underline */
+    margin-right: 16px;                /* space between links */
+    font-weight: 600;                  /* semi-bold */
+  }
+  
+  nav a:hover {                        /* :hover = while the mouse is over it */
+    color: #19b36b;                    /* turns green */
+  }
+  
+  .glossy-btn {
+    background: linear-gradient(#a8e8ff 0%, #38b6f0 50%, #1a9be0 51%, #5fd0ff 100%);
+                                       /* hard color jump at 50% creates the classic glossy "shine line" */
+    color: white;
+    border: 1px solid #1480b8;
+    border-radius: 999px;              /* huge radius = pill shape */
+    padding: 10px 28px;
+    font-size: 1rem;
+    cursor: pointer;                   /* hand cursor on hover */
+    box-shadow: 0 4px 10px rgba(0, 120, 200, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.15s;       /* animates changes over 0.15 seconds */
+  }
+  
+  .glossy-btn:hover {
+    transform: translateY(-2px);       /* lifts the button slightly */
+  }
+  
+  .project {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
