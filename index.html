@@ -4,45 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>My E-Portfolio</title>
+
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-
-
-
 </head>
-<body>
 
-    <aside id="sidebar" class="sidebar">
-        <h1>Welcome to My E-Portfolio</h1>
-        <nav>  
+<body>
+    <header class="welcome">
+        <h1>Welcome</h1>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar">
             <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+            <img class="side-img" src="assets/images/elfen.webp" alt="">
         </nav>
-    </aside>
 
-    <main>
+        <main class="content">
+            <section id="about">
+                <h2 class="tab">About Me</h2>
+                <div class="panel">
+                    <img class="banner" src="assets/images/" alt="">
+                    <div class="text">
+                        <p>Hey lol</p>
+                    </div>
+                </div>
+            </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm Jack, a first-year Information Technology student.</p>
-        </section>
+            <section id="projects">
+                <h2 class="tab">Projects</h2>
+                <div class="panel project-card">
+                    <img id="project-img" src="" alt="">
+                    <div class="project-text">
+                        <h3 id="project-title"></h3>
+                        <p id="project-desc"></p>
+                    </div>
+                    <button id="next-btn" aria-label="Next project"></button>
+                </div>
+            </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-        </section>
+            <section id="contact">
+                <h2 class="tab">Contact Me</h2>
+                <div class="panel">
+                    <p>email@gmail.com</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>gmail@Gmail.com</p>
-        </section>
 
-    </main>
-
-    <footer>
-        <p>&copy; 2026</p>
-    </footer>
 
     <script src="script.js"></scripts>
 </body>
