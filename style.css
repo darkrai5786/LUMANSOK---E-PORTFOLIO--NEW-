@@ -1,22 +1,281 @@
 @font-face {
     font-family: "Pokemon";
-    src: url("assets/fonts/Pokemon\ Solid.ttf") format("truetype");
-    font-weight: normal;
-    font-display: swap;
+    src: url("assets/fonts/Pokemon Solid.ttf");
 }
 
 @font-face {
     font-family: "Minecraft";
-    src: url("assets/fonts/Minecraft.ttf") format("truetype");
-    font-weight: normal;
-    font-display: swap;
-
+    src: url("assets/fonts/Minecraft.ttf");
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+:root {
+    --pink: #f873d7;
+    --glass: rgba(0, 0, 0, .4);
+    --edge: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    overflow: hidden;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #ffb0e5;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("assets/images/touhou_107.jpg") center / cover no-repeat;
+    z-index: -1;
+}
+
+#site {
+    width: min(1000px, 92%);
+    height: 90vh;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--glass);
+    border: 1px solid var(--edge);
+    border-radius: 70px 70px 0 60px;
+    /* big rounded top corners */
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+    /* clips children to the rounded shape */
+}
+
+/* HEADER with gloss */
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 30px 6px 150px;
+    background: linear-gradient(rgba(250, 167, 229, 0.85), rgba(168, 62, 136, 0.9));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+    /* thin bright edge along the top */
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 40% 0;
+    background: linear-gradient(rgba(255, 255, 255, .18), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+header h1 {
     margin: 0;
-    padding: 0;
+    line-height: 1.5;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+
+    color: #fff
 }
+
+header p {
+    margin: 0;
+    font-size: .9rem;
+    color: #ccc;
+}
+
+#logo {
+    position: absolute;
+    left: 20px;
+    bottom: -47px;
+    height: 130px;
+    z-index: 5;
+
+}
+
+#layout {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    min-height: 0;
+    /* lets main scroll inside flex */
+}
+
+nav {
+    box-sizing: border-box;
+    padding: 2px;
+    margin-top: 35px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, .35);
+    border: 2px solid rgba(255, 255, 255, .35);
+    border-radius: 0 0 0px 40px;
+}
+
+.group {
+    margin-bottom: 10px;
+    padding: 4px;
+    background: rgba(0, 0, 0, .5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .8);
+}
+
+.group h3 {
+    margin: 0 0 3px;
+    padding: 4px;
+    text-align: center;
+    font-size: .9rem;
+    font-weight: normal;
+    border-radius: 4px;
+}
+
+/* glossy split buttons */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    padding: 8px 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+    background: linear-gradient(#cacaca, #747474, #000, #222);
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background: linear-gradient(#cacaca, #747474, #4e4e4e 50%, #e027c8);
+}
+
+nav a.active {
+    background: linear-gradient(#f5abeb, #c442ae 50%, #cf19a8 50%, #e027c8);
+}
+
+#side-img {
+    margin-top: auto;
+    width: 100%;
+    opacity: .5;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+main {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-right: 6px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    /* dark title bar */
+    margin: 0 0 6px;
+    padding: 6px;
+    text-align: center;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    background: linear-gradient(#333, #000);
+    border: 1px solid #555;
+    border-radius: 6px;
+}
+
+.panel {
+    padding: 8px;
+    background: rgba(0, 0, 0, .6);
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-radius: 10px;
+}
+
+.panel p {
+    line-height: 1.5;
+    padding: 0 8px;
+}
+
+.panel a {
+    color: var(--green);
+}
+
+/* About: image on top, text below */
+#about .panel img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Projects: image left, text middle, arrow bottom-right */
+#project-card {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    transition: opacity .4s;
+}
+
+#project-card.fade {
+    opacity: 0;
+}
+
+/* the transition */
+#project-img {
+    width: 220px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#project-text {
+    flex: 1;
+}
+
+#project-text h3 {
+    margin: 4px 0;
+    color: var(--green);
+    font-weight: normal;
+}
+
+/* custom image button */
+#next-btn {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    width: 48px;
+    height: 48px;
+    background: url("assets/images/next-arrow.png") center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+#next-btn:hover {
+    filter: brightness(1.3);
+}
+
+#next-btn:active {
+    transform: scale(.9);
+}
+
+/* ---------- GREEN SCROLLBAR ---------- */
+main::-webkit-scrollbar {
+    width: 10px;
+}
+
+main::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #2b5, #063);
+    border-radius: 5px;
+}
+
+main {
+    scrollbar-color: #2b5 rgba(0, 0, 0, .5);
+    scrollbar-width: thin;
+}
+
+/* Firefox */

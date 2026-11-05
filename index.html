@@ -8,36 +8,43 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header class="welcome">
-        <h1>Welcome</h1>
+<div id="site">
+
+    <header>
+        <img id="logo" src="assets/images/logo1.jpg" alt="">
+        <div>
+            <h1>Welcome to my Portfolio!</h1>
+            <p>Skills and self-made projects</p>
+        </div>
     </header>
 
-    <div class="layout">
-        <nav class="sidebar">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <img class="side-img" src="assets/images/elfen.webp" alt="">
+    <div id="layout">
+
+        <nav>
+            <div class="group">
+        
+                <a href="#about" class="active">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contacts</a>
+            </div>
+            <img id="side-img" src="assets/images/elfen.webp" alt="">
         </nav>
 
-        <main class="content">
+        <main>
             <section id="about">
-                <h2 class="tab">About Me</h2>
+                <h2>About Me</h2>
                 <div class="panel">
-                    <img class="banner" src="assets/images/" alt="">
-                    <div class="text">
-                        <p>Hey lol</p>
-                    </div>
+                    <img class="banner" src="assets/images/banner.png" alt="">
+                    <p>Write about yourself here. <a href="#">Links turn green.</a></p>
                 </div>
             </section>
 
             <section id="projects">
-                <h2 class="tab">Projects</h2>
-                <div class="panel project-card">
+                <h2>Projects</h2>
+                <div class="panel" id="project-card">
                     <img id="project-img" src="" alt="">
-                    <div class="project-text">
+                    <div>
                         <h3 id="project-title"></h3>
                         <p id="project-desc"></p>
                     </div>
@@ -46,16 +53,18 @@
             </section>
 
             <section id="contact">
-                <h2 class="tab">Contact Me</h2>
+                <h2>Contact Me</h2>
                 <div class="panel">
-                    <p>email@gmail.com</p>
+                    <p>email@example.com</p>
                 </div>
             </section>
+
         </main>
     </div>
 
+</div>
 
 
-    <script src="script.js"></scripts>
+<script src="script.js"></scripts>
 </body>
 </html>
