@@ -265,11 +265,11 @@ h2 {
 }
 
 #project-card {
-  transform-origin: 95% 90%;                 /* near the next button */
+  transform-origin: 95% 90%;                 
   transition: transform .4s ease-in, opacity .4s ease-in;
 }
 #project-card.out {
-  transform: scale(.05, .02) skewX(-25deg);  /* squeezed into the corner */
+  transform: scale(.05, .02) skewX(-25deg);  
   opacity: 0;
 }
 #project-card.in {
